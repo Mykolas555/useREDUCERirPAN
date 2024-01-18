@@ -1,8 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Tasks from "../tasks/Tasks";
 
 function App() {
   return (
     <>
+      <div className="Container">
+        <Tasks/>
+      </div>
     </>
   );
 }
