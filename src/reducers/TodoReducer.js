@@ -3,8 +3,18 @@ const TodoReducer = (state, action) => {
         case 'Add task':
             return{
                 ...state,
-                tasks:[...state.task, action.payload]
+                tasks:[...state.tasks, action.payload]
             }
+            case 'Open form':
+                return{
+                    ...state,
+                    isOpen:action.payload
+                }
+            case 'Remove task':
+                return{
+                    ...state,
+                    tasks:state.tasks.filter((task)=>task.id!==action.payload)
+                }
         default:
             return state
     }

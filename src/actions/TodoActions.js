@@ -11,3 +11,10 @@ export const deleteTask = (id) => {
         payload:id
     }
 }
+
+export const openForm = (formStatus) => {
+    return{
+        type:'Open form',
+        payload:formStatus
+    }
+}

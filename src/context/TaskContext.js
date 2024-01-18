@@ -1,8 +1,7 @@
 import { useContext, useReducer } from "react";
 import TodoReducer from "../reducers/TodoReducer";
 import React from "react";
-import { newTask } from "../actions/TodoActions";
-import { deleteTask } from "../actions/TodoActions";
+import { newTask, openForm, deleteTask } from "../actions/TodoActions";
 
 const AppContext = React.createContext();//musu kontekstas kuriame viskas judes
 
@@ -50,11 +49,21 @@ const AppProvider = ({children}) =>{ //tiekejas kuris kazka tiekia
         dispatch(newTask(data))
     }
 
+    const handleForm = (formStatus) => {
+        dispatch(openForm(formStatus))
+    }
+
+    const removeTask = (id) => {
+        dispatch(deleteTask(id))
+    }
+
     return(
         <AppContext.Provider 
             value={{
                 ...state,
-                addTask
+                addTask,
+                handleForm,
+                removeTask
             }}>
             {children}
         </AppContext.Provider>
